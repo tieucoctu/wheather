@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 export default function TodayWeather({...props}){
+   
     return(
         <div className="today">
             <div className="today__inner">
@@ -18,16 +19,19 @@ export default function TodayWeather({...props}){
                 
                 <div className="today__right-content">
                     {props.weather.length >0 &&
-                    props.weather.map(image =>(
-                        <><div className="today__icon-wrapper">
+                    props.weather.map((image,index) =>(
+                        <><div  className="today__icon-wrapper">
                             <div>
+                                    
                                 <Image
+                                    
                                     src={`https://openweathermap.org/img/wn/${image.icon}@2x.png`}
                                     alt="Weather Icon"
-                                    layout="fill" />
+                                    layout="fill" 
+                                    key={index}/>
                             </div>
                         </div>
-                        <h3>{image.description}</h3></>
+                        <h3 key={index}>{image.description}</h3></>
                     ))                        
                     }
                       
@@ -43,22 +47,24 @@ export default function TodayWeather({...props}){
             <div className="today__condition">
                 <div className="today__condition-current">
                     
-                    <div className="today__condition-humidity">Độ ẩm: <span >{props.current.humidity}%</span>
+                    <div className="today__condition-humidity">Humidity: <span >{props.current.humidity}%</span>
                     </div>
-                    <div className="today__condition-clouds">
-                            Mây: <span >{props.current.clouds}%</span>
+                    <div className="today__condition-pressure">
+                    Pressure: <span >{props.current.pressure}hPa</span>
                     </div>
                     <div className="today__condition-uvi">
-                            Chỉ số UV: <span >{props.current.uvi}</span>
+                            UV index: <span >{props.current.uvi}</span>Extreme
                     </div>
                     <div className="today__condition-wind_speed">
-                            Tốc độ gió: <span >{props.current.wind_speed} m/s</span>
+                        Wind speed: <span >{props.current.wind_speed} m/s</span>
+                    </div><div className="today__condition-visibility">
+                        Visibility: <span >{props.current.visibility} km</span>
                     </div>
                     <div className="today__condition-rain">
-                            Lượng mưa: <span >{props.current.rain} mm</span>
+                        Rain: <span >{props.current.rain} mm</span>
                     </div>
                     <div className="today__condition-snow">
-                           Lượng tuyết: <span >{props.current.snow} mm</span> 
+                           Snow: <span >{props.current.snow} mm</span> 
                     </div>
                 </div>
                         

@@ -7,6 +7,11 @@ import Head from "next/head";
 import SearchBox from "../../components/SearchBox";
 import HourlyWeather from '../../components/HourlyWeather';
 import TodayWeather from '../../components/TodayWeather';
+import WeeklyWeather from '../../components/WeeklyWeather';
+import dynamic from 'next/dynamic'
+const Maps = dynamic(() => import("../../components/Maps"), { ssr: false });
+
+
 
 export async function getServerSideProps(context){
   
@@ -78,7 +83,6 @@ const getHourlyWeather = (hourlyData, timezone) =>{
 }
 
 export default function Weather({...props}){
-  console.log(props.weather[2])
   return(
     <>
       <Head>
@@ -86,6 +90,10 @@ export default function Weather({...props}){
       </Head>
       <div className="page-wrapper">
         <div className="container">
+        <Link href="/">
+            <a className="back-link">&larr; Home</a>
+          </Link>
+          <SearchBox placeholder="Search for another location..." />
           <TodayWeather 
             city={props.city}
             timezone={props.timezone}
@@ -93,7 +101,13 @@ export default function Weather({...props}){
             weather = {props.weather}
           />
           <HourlyWeather hourlyweather={props.hourlyweather} timezone = {props.timezone}/>
+          <WeeklyWeather  weeklyWeather={props.weeklyWeather} timezone={props.timezone}  />
         </div>
+        <div >
+          {console.log("ssss ")}
+          <Maps />
+        </div>
+
       </div>
     </>
   )
