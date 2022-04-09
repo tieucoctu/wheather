@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
-import SearchBox from '../components/SearchBox'
+import SearchBox from '../components/SearchBox/SearchBox'
 
 
 export default function Home() {

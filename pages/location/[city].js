@@ -4,12 +4,12 @@ import moment from "moment-timezone";
 import Link from "next/link";
 import Head from "next/head";
 
-import SearchBox from "../../components/SearchBox";
-import HourlyWeather from "../../components/HourlyWeather";
-import TodayWeather from "../../components/TodayWeather";
-import WeeklyWeather from "../../components/WeeklyWeather";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import HourlyWeather from "../../components/HourlyWeather/HourlyWeather";
+import TodayWeather from "../../components/TodayWeather/TodayWeather";
+import WeeklyWeather from "../../components/WeeklyWeather/WeeklyWeather";
 import dynamic from "next/dynamic";
-const Maps = dynamic(() => import("../../components/Maps"), { ssr: false });
+const Maps = dynamic(() => import("../../components/Maps/Maps"), { ssr: false });
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.city);
@@ -85,7 +85,7 @@ export default function Weather({ ...props }) {
   return (
     <>
       <Head>
-        <title>{props.city.name} Weather - Next Weather App</title>
+        <title>Weather - Next Weather App</title>
       </Head>
       <div className="page-wrapper">
         <div className="container">
@@ -108,9 +108,11 @@ export default function Weather({ ...props }) {
             timezone={props.timezone}
           />
         </div>
-        {/* <div>
-          <Maps />
-        </div> */}
+        {/* <>
+          <div>
+            <Maps />
+          </div>
+        </> */}
       </div>
     </>
   );
