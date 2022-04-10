@@ -9,8 +9,8 @@ export default function TodayWeather({ ...props }) {
     {
       name: "Humidity",
       dv: "%",
-      api: props.current.humidity,
       class: "today__condition-humidity",
+      api: props.current.humidity,
     },
     {
       name: "Pressure",
@@ -72,7 +72,7 @@ export default function TodayWeather({ ...props }) {
                       src={`https://openweathermap.org/img/wn/${image.icon}@2x.png`}
                       alt="Weather Icon"
                       layout="fill"
-                      key={index}
+                      key={image.id}
                     />
                   </div>
                 </div>
@@ -95,7 +95,7 @@ export default function TodayWeather({ ...props }) {
             condition.map((condi, index) => (
               <>
                 <Fragment>
-                  <div className={condi.class}>
+                  <div className={condi.class} key={condi.name}>
                     {condi.name}:{" "}
                     <span>
                       {condi.api}

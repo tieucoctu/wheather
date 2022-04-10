@@ -56,7 +56,7 @@ export default function SearchBox({ placehorder }) {
       {query.length > 3 && (
         <ul>
           {results.length > 0 ? (
-            results.map((city) => {
+            results.map((city,index) => {
               return (
                 <li key={city.slug}>
                   <Link href={`/location/${city.slug}`}>

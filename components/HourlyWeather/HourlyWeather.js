@@ -15,7 +15,7 @@ export default function HourlyWeather({ hourlyweather, timezone }) {
       current.scrollLeft += 120;
     }
   };
-
+  console.log(hourlyweather.length)
   return (
     <div className={styles.hourly}>
       <h3 className={styles.hourly__hourly_title}>Hourly</h3>

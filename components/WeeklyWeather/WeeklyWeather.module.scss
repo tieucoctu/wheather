@@ -17,6 +17,7 @@ $white: #ffffff;
   &__container {
     display: flex;
     align-content: center;
+    justify-content: center;
     overflow: hidden;
     margin: 0rem 4rem;
   }
@@ -118,6 +119,13 @@ $white: #ffffff;
     &_right:hover,
     &_left:hover {
       opacity: 1;
+    }
+  }
+}
+@media screen and (max-width: 1050px) {
+  .weekly{
+    &__container{
+      justify-content: flex-start;
     }
   }
 }

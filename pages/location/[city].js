@@ -8,8 +8,11 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import HourlyWeather from "../../components/HourlyWeather/HourlyWeather";
 import TodayWeather from "../../components/TodayWeather/TodayWeather";
 import WeeklyWeather from "../../components/WeeklyWeather/WeeklyWeather";
+
 import dynamic from "next/dynamic";
-const Maps = dynamic(() => import("../../components/Maps/Maps"), { ssr: false });
+const Maps = dynamic(() => import("../../components/Maps/Maps"), {
+  ssr: false,
+});
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.city);
@@ -72,11 +75,8 @@ const getCityId = (param) => {
 };
 
 const getHourlyWeather = (hourlyData, timezone) => {
-  const endOfDay = moment().tz(timezone).endOf("day").valueOf();
 
-  const eodTimeStamp = Math.floor(endOfDay / 1000);
-
-  const todaysData = hourlyData.filter((data) => data.dt < eodTimeStamp);
+  const todaysData = hourlyData.filter((data) => data.dt );
 
   return todaysData;
 };
