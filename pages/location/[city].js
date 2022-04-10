@@ -75,11 +75,8 @@ const getCityId = (param) => {
 };
 
 const getHourlyWeather = (hourlyData, timezone) => {
-  const endOfDay = moment().tz(timezone).endOf("day").valueOf();
 
-  const eodTimeStamp = Math.floor(endOfDay / 1000);
-
-  const todaysData = hourlyData.filter((data) => data.dt < eodTimeStamp);
+  const todaysData = hourlyData.filter((data) => data.dt );
 
   return todaysData;
 };
