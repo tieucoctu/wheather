@@ -76,7 +76,7 @@ const getCityId = (param) => {
 
 const getHourlyWeather = (hourlyData, timezone) => {
 
-  const todaysData = hourlyData.map((data) => data.dt );
+  const todaysData = hourlyData.filter((data) => data.dt );
 
   return todaysData;
 };
