@@ -46,11 +46,12 @@ export default function SearchBox({placehorder }){
 
     return(
         <div className="search">
+            
             <input 
                 type="text" 
                 value ={query}
                 onChange={onChange}
-                placeholder={placehorder ? placehorder: ""}
+                placeholder={placehorder ? placehorder: "Search for a city..."}
             />
             {query.length > 3 &&(
                 <ul>

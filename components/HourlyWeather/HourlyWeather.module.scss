@@ -1,0 +1,105 @@
+$f-light: 300;
+$f-regular: 400;
+$f-semi-bold: 600;
+$f-bold: 700;
+$f-extra-bold: 800;
+
+$dark: #242424;
+$primary: #4361ee;
+$secondary: #5e60ce;
+$tertiary: #22b0db;
+$white: #ffffff;
+
+.hourly {
+  margin-top: 20px;
+  padding-bottom: 10px;
+
+  &__hourly_title {
+    color: $white;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    font-size: 2rem;
+  }
+  &__inner {
+    margin-left: 4rem;
+    display: flex;
+    margin-top: 30px;
+    overflow: hidden;
+    justify-content: flex-start;
+    margin-right: 4rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__more {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -74px;
+
+    button{
+      font-size: 20px;
+      color: $white;
+      opacity: 0.7;
+      background-color: $primary;
+    }
+    &_left,
+    &_right {
+      border: 2px solid $white;
+      border-radius: 50%;
+      
+      cursor: pointer;
+    }
+    &_right:hover,
+    &_left:hover {
+      opacity: 1;
+    }
+    
+  }
+
+  &__box_wrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:first-child {
+      min-width: 110px;
+      padding-left: 0;
+    }
+
+    &:last-child {
+      min-width: 110px;
+      padding-right: 0;
+    }
+  }
+
+  &__box {
+    display: flex;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+
+    img {
+      width: 80%;
+      max-width: 80px;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  &__time {
+    font-size: 1rem;
+    font-weight: $f-light;
+
+    &_now {
+      font-weight: $f-semi-bold;
+    }
+  }
+}

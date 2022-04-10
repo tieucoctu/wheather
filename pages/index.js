@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
+import SearchBox from '../components/SearchBox/SearchBox'
 
-import SearchBox from '../components/SearchBox'
 
 export default function Home() {
   return (
@@ -12,11 +12,8 @@ export default function Home() {
       </Head>
 
       <div className="home">
-        <div className="container">
-          <SearchBox placeholder="Search for a city..." />
-
-          
-        </div>
+        
+        <SearchBox placeholder="Search for a city..." />
       </div>
     </div>
   )

@@ -4,8 +4,10 @@ import 'moment-timezone';
 import Image from 'next/image'
 
 export default function HourlyWeather({hourlyweather, timezone}){
+    
    return(
        <div className='hourly'>
+           <h3 className='hourly__hourly-title'>Hourly</h3>
            <div className='hourly__inner'>
                {hourlyweather.length >0 &&
                 hourlyweather.map((weather, index) =>(
@@ -15,7 +17,9 @@ export default function HourlyWeather({hourlyweather, timezone}){
                                 {index ==0 ? "Now" 
                                 : moment.unix(weather.dt).tz(timezone).format("LT")}
                             </span>
+                             
                             <Image
+                                
                                 src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                                 alt={weather.weather[0].description}
                                 width="100"
