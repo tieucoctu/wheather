@@ -8,8 +8,11 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import HourlyWeather from "../../components/HourlyWeather/HourlyWeather";
 import TodayWeather from "../../components/TodayWeather/TodayWeather";
 import WeeklyWeather from "../../components/WeeklyWeather/WeeklyWeather";
+
 import dynamic from "next/dynamic";
-const Maps = dynamic(() => import("../../components/Maps/Maps"), { ssr: false });
+const Maps = dynamic(() => import("../../components/Maps/Maps"), {
+  ssr: false,
+});
 
 export async function getServerSideProps(context) {
   const city = getCityId(context.params.city);

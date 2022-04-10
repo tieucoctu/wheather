@@ -1,12 +1,13 @@
 import "../styles/globals.scss";
 import { useEffect } from "react";
-import nprogress from "nprogress";
+import NProgress from "nprogress";
 import Router from "next/router";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    const start = () => nprogress.start;
-    const end = () => nprogress.done;
+    const start = () => NProgress.start;
+    const end = () => NProgress.done;
 
     Router.events.on("routeChangeStart", start);
     Router.events.on("routeChangeComplete", end);
