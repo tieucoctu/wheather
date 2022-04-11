@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
-  const hourlyWeather = getHourlyWeather(data.hourly, data.timezone);
+  const hourlyWeather = data.hourly;
   const current = data.current;
   const weeklyWeather = data.daily;
   const timezone = data.timezone;
@@ -74,12 +74,12 @@ const getCityId = (param) => {
   }
 };
 
-const getHourlyWeather = (hourlyData, timezone) => {
+// const getHourlyWeather = (hourlyData, timezone) => {
 
-  const todaysData = hourlyData.filter((data) => data.dt );
-
-  return todaysData;
-};
+//   const todaysData = hourlyData.filter((data) => data.dt );
+//   console.log(todaysData)
+//   return todaysData;
+// };
 
 export default function Weather({ ...props }) {
   return (
