@@ -63,8 +63,8 @@ export default function TodayWeather({ ...props }) {
         </div>
 
         <div className={styles.today__right_content}>
-          {props.weather.length > 0 &&
-            props.weather.map((image, index) => (
+          {props.current.weather.length > 0 &&
+            props.current.weather.map((image, index) => (
               <>
                 <div className={styles.today__icon_wrapper}>
                   <div>

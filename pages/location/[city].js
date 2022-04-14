@@ -1,6 +1,5 @@
 import react from "react";
 import cities from "../../lib/city/city.list.json";
-import moment from "moment-timezone";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -36,7 +35,7 @@ export async function getServerSideProps(context) {
   const current = data.current;
   const weeklyWeather = data.daily;
   const timezone = data.timezone;
-  const weather = data.current.weather;
+
   if (!data.current.rain) {
     data.current.rain = 0;
   }
@@ -51,11 +50,10 @@ export async function getServerSideProps(context) {
       city: city,
       hourlyweather: hourlyWeather,
       weeklyWeather: weeklyWeather,
-      weather: weather,
     },
   };
+  
 }
-
 const getCityId = (param) => {
   const cityParam = param.trim();
   const splitCity = cityParam.split("-");
@@ -73,7 +71,6 @@ const getCityId = (param) => {
     return null;
   }
 };
-
 // const getHourlyWeather = (hourlyData, timezone) => {
 
 //   const todaysData = hourlyData.filter((data) => data.dt );
@@ -97,7 +94,6 @@ export default function Weather({ ...props }) {
             city={props.city}
             timezone={props.timezone}
             current={props.current}
-            weather={props.weather}
           />
           <HourlyWeather
             hourlyweather={props.hourlyweather}
@@ -108,11 +104,11 @@ export default function Weather({ ...props }) {
             timezone={props.timezone}
           />
         </div>
-        {/* <>
+        <>
           <div>
             <Maps />
           </div>
-        </> */}
+        </>
       </div>
     </>
   );
